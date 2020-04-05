@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/corona_info_hero"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/informed_woman" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/default_large_margin"
+            android:layout_marginRight="@dimen/default_large_margin"
+            android:orientation="vertical"
+            tools:context=".View.UI.CoronaInfoActivity">
+
+            <TextView
+                style="@style/heading_textLarge_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/text_large_padding"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_info_title" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_info_one" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:paddingBottom="@dimen/default_small_padding"
+                android:scaleType="centerCrop"
+                android:src="@drawable/corona_image"
+
+                />
+
+            <TextView
+                style="@style/byline_textSmall_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/image_credit" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_info_three" />
+
+
+            <TextView
+                style="@style/heading_textLarge_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_symptoms_title" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_symptoms_info" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.5"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_info_credit"
+                android:textStyle="italic" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_more_info" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

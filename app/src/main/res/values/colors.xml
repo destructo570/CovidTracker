@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#FAFAFA</color>
+    <color name="colorAccent">#0277BD</color>
+    <color name="bgBottomNavigation">#FBFBFB</color>
+    <color name="itemIconColor">#263238</color>
+
+    <color name="primaryAccent">#039BE5</color>
+    <color name="primaryAccentDark">#0277BD</color>
+
+    <color name="darkGray">#263238</color>
+    <color name="lightGray">#EEEEEE</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="primaryTextColor">#263238</color>
+    <color name="seondaryTextColor">#263238</color>
+
+    <color name="colorInfected">#E53935</color>
+    <color name="colorActive">#1E88E5</color>
+    <color name="colorRecovered">#43A047</color>
+    <color name="colorDeaths">#757575</color>
+
+    <color name="defaultTextColor">#000000</color>
+
+
+
+</resources>

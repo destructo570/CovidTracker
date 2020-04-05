@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="summary_sub_head_margin">-4dp</dimen>
+
+    <dimen name="default_large_padding">16dp</dimen>
+    <dimen name="default_medium_padding">8dp</dimen>
+    <dimen name="default_small_padding">4dp</dimen>
+
+    <dimen name="default_large_margin">16dp</dimen>
+    <dimen name="default_medium_margin">8dp</dimen>
+    <dimen name="default_small_margin">4dp</dimen>
+
+    <dimen name="text_large_padding">16dp</dimen>
+    <dimen name="text_medium_padding">8dp</dimen>
+    <dimen name="text_small_padding">4dp</dimen>
+
+    <dimen name="large_textSize">24sp</dimen>
+    <dimen name="medium_textSize">16sp</dimen>
+    <dimen name="small_textSize">8sp</dimen>
+
+    <dimen name="byline_textSize">12sp</dimen>
+
+    <dimen name="summary_card_elevation">2dp</dimen>
+
+    <dimen name="default_icon_size">48dp</dimen>
+
+    <dimen name="default_fab_size">64dp</dimen>
+
+
+
+
+</resources>

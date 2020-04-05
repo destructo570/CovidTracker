@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:tag="@string/frag_tag_about"
+        android:paddingStart="@dimen/default_large_padding"
+        android:paddingEnd="@dimen/default_large_padding"
+        tools:context=".View.UI.FragmentAbout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/default_large_padding">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="250dp"
+               >
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dev_img" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/body_textMedium_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/dev_name" />
+
+                <TextView
+                    style="@style/body_text_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/dev_description" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/default_medium_padding">
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/social_insta"
+                        android:textAllCaps="true"
+                        android:textColor="@color/primaryAccent"
+                        android:id="@+id/dev_insta"
+                        android:paddingStart="@dimen/default_large_padding"
+                        android:paddingEnd="@dimen/default_large_padding"/>
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/social_twitter"
+                        android:textAllCaps="true"
+                        android:id="@+id/dev_twitter"
+                        android:paddingStart="@dimen/default_large_padding"
+                        android:paddingEnd="@dimen/default_large_padding"
+                        android:textColor="@color/primaryAccent" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.05"
+            android:background="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_credits"
+            android:textAllCaps="true"
+            android:alpha="0.4"
+            android:paddingTop="@dimen/default_medium_padding"
+            style="@style/body_textMedium_medium"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/default_large_padding">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="250dp"
+                >
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/credit_one" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/body_textMedium_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/credit_one" />
+
+                <TextView
+                    style="@style/body_text_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/credit_one_desc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/default_medium_padding">
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/social_github"
+                        android:textAllCaps="true"
+                        android:id="@+id/credit_one_github"
+                        android:paddingStart="@dimen/default_large_padding"
+                        android:paddingEnd="@dimen/default_large_padding"
+                        android:textColor="@color/primaryAccent" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                app:cardCornerRadius="250dp"
+                >
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/credit_two" />
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/body_textMedium_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/credit_two" />
+
+                <TextView
+                    style="@style/body_text_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/text_large_padding"
+                    android:text="@string/credit_two_desc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/default_medium_padding">
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/social_github"
+                        android:textAllCaps="true"
+                        android:id="@+id/credit_two_github"
+                        android:paddingStart="@dimen/default_large_padding"
+                        android:paddingEnd="@dimen/default_large_padding"
+                        android:textColor="@color/primaryAccent" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

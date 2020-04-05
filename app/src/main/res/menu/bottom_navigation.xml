@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/navigation_global"
+        android:icon="@drawable/ic_global_normal"
+        android:title="@string/nav_title_global" />
+
+    <item
+        android:id="@+id/navigation_india"
+        android:icon="@drawable/ic_india_two_normal"
+        android:title="@string/nav_title_india" />
+
+    <item
+        android:id="@+id/navigation_live_map"
+        android:icon="@drawable/ic_map_normal"
+        android:title="@string/nav_title_map" />
+
+    <item
+        android:id="@+id/navigation_help"
+        android:icon="@drawable/ic_safety_normal"
+        android:title="@string/nav_title_help" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_about_normal"
+        android:title="@string/nav_title_about" />
+
+</menu>

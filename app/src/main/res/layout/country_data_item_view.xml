@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+
+    >
+
+    <TextView
+        android:id="@+id/country_name_id"
+        style="@style/body_textMedium_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        tools:text="USA"
+        android:textStyle="normal" />
+
+
+    <TextView
+        android:id="@+id/country_infected_id"
+        style="@style/body_textMedium_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        tools:text="0"
+        android:textColor="#e53935" />
+
+
+    <TextView
+        android:id="@+id/cases_today_id"
+        style="@style/body_textMedium_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/country_infected_id"
+        android:layout_centerVertical="true"
+        android:paddingEnd="@dimen/text_medium_padding"
+        tools:text="0"
+        android:textColor="#000000"
+        android:alpha="0.3"/>
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_toStartOf="@+id/cases_today_id"
+        android:id="@+id/increase_icon_id"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_increase"
+        android:paddingEnd="2dp"
+        android:paddingTop="2dp"
+        android:alpha="0.3"
+        />
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.05"
+        android:background="#000000"
+        />
+
+</RelativeLayout>

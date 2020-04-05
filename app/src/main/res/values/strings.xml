@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">Covid Tracker</string>
+    <string name="title_global">Global Statistics</string>
+    <string name="title_india_stats">India Statistics</string>
+    <string name="title_live_map">Live Map</string>
+    <string name="title_help">Help and Information</string>
+    <string name="title_about">About App</string>
+    <string name="title_helpline">Helpline Numbers</string>
+
+    <string name="frag_tag_global">global</string>
+    <string name="frag_tag_india">india</string>
+    <string name="frag_tag_livemap">livemap</string>
+    <string name="frag_tag_help">help</string>
+    <string name="frag_tag_about">about</string>
+
+    <string name="nav_title_global">Global</string>
+    <string name="nav_title_india">India</string>
+    <string name="nav_title_map">Live Map</string>
+    <string name="nav_title_help">Help</string>
+    <string name="nav_title_about">About</string>
+
+    <string name="learn_more_text">Learn More About Corona Virus</string>
+    <string name="helpline_number_text">India Helpline Numbers</string>
+
+    <string name="country_text">Country</string>
+    <string name="state_text">State</string>
+    <string name="infected_text">Infected</string>
+    <string name="active_text">Active</string>
+    <string name="recovered_text">Recovered</string>
+    <string name="deaths_text">Deaths</string>
+
+    <string name="corona_help_title_1">How to fight corona virus?</string>
+
+    <string name="corona_do_the_five">Wash your hands regularly for 20 seconds, with soap and water or alcohol-based hand rub.
+    \n\nCover your nose and mouth with a disposable tissue or flexed elbow when you cough or sneeze.
+    \n\nAvoid close contact (1 meter or 3 feet) with people who are unwell.
+    \n\nDon\'t touch your eyes, nose, or mouth if your hands are not clean.
+    \n\nStay home and self-isolate from others in the household if you feel unwell.</string>
+
+    //Information About Corona
+    <string name="corona_info_title">Novel COVID-19 (Corona) Virus</string>
+
+    <string name="corona_info_one">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+        \n\nMost people infected with the COVID-19 virus will experience mild to moderate respiratory illness and
+        recover without requiring special treatment.  Older people, and those with underlying medical
+        problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are 
+        more likely to develop serious illness.
+        \n\nThe best way to prevent and slow down transmission is be well
+        informed about the COVID-19 virus, the
+        disease it causes and how it spreads. Protect yourself and others from infection by washing
+        your hands or using an alcohol based rub frequently and not touching your face.
+        </string>
+
+    <string name="corona_info_three">
+        The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose
+        when an infected person coughs or sneezes, so it’s important that you also practice respiratory
+        etiquette (for example, by coughing into a flexed elbow).
+        \n\nAt this time, there are no specific vaccines or treatments for
+        COVID-19. However, there are many ongoing clinical trials evaluating potential treatments.
+        WHO will continue to provide updated
+        information as soon as clinical findings become available.</string>
+
+    <string name="image_credit">Image Credit Ecohealth Alliance</string>
+    <string name="corona_symptoms_title">Symptoms</string>
+    <string name="corona_symptoms_info">The most common symptoms of COVID-19 are fever, tiredness,
+        and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore
+        throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become
+        infected but don’t develop any symptoms and don\'t feel unwell.People with fever, cough and difficulty breathing
+        should seek medical attention.</string>
+
+    <string name="corona_info_credit">NOTE : All information shown here has been taken from WHO\'s official website.
+    Refer to the links below for more information on Corona virus.</string>
+
+    <string name="corona_more_info">WHO Corona Virus Outbreak :\n<a href="https://www.who.int/health-topics/coronavirus">https://www.who.int/health-topics/coronavirus</a>
+    \n\nWHO Corona Q&amp;A :\n<a href="https://www.who.int/news-room/q-a-detail/q-a-coronaviruses">https://www.who.int/news-room/q-a-detail/q-a-coronaviruses</a></string>
+
+    <string name="dev_name">Vishal Kashi</string>
+    <string name="dev_description">A creative Android developer and Graphic designer from India, I
+        created this app to learn more about android development. Hope you find this app useful.</string>
+
+    <string name="social_insta">Instagram</string>
+    <string name="social_twitter">Twitter</string>
+    <string name="social_github">Github</string>
+
+    <string name="about_credits">Credits</string>
+    <string name="credit_one">Ethan Winters</string>
+    <string name="credit_one_desc">Thanks to Ethan for creating NovelCOVID Api to track current cases and more stuff about Covid-19 or
+        the novel coronavirus strain.</string>
+    <string name="credit_two">Amod Malviya</string>
+    <string name="credit_two_desc">Thanks to Amod for Covid-19 Api for information of current Covid-19 cases in India and other
+    useful information</string>
+
+</resources>

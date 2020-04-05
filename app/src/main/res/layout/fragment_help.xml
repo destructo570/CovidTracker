@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:tag="@string/frag_tag_help"
+    tools:context=".View.UI.FragmentHelp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mask_woman" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/text_large_padding"
+            android:paddingRight="@dimen/text_large_padding">
+
+            <TextView
+                style="@style/heading_textLarge_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/text_large_padding"
+                android:paddingBottom="@dimen/text_large_padding"
+                android:text="@string/corona_help_title_1" />
+
+            <TextView
+                style="@style/body_text_regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/corona_do_the_five"
+                />
+
+            <Button
+                android:id="@+id/button_learn_more"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/default_large_margin"
+                android:text="@string/learn_more_text" />
+
+            <Button
+                android:id="@+id/button_helpline"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/default_large_margin"
+                android:layout_marginBottom="@dimen/default_large_margin"
+                android:text="@string/helpline_number_text" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

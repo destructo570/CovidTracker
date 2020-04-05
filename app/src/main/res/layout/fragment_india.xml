@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:tag="@string/frag_tag_india"
+    tools:context=".View.UI.FragmentGlobal">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        app:layout_anchorGravity="bottom|center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:id="@+id/corona_img_id"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical|bottom"
+                app:layout_collapseMode="parallax"
+                android:src="@drawable/remote_work_man" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardview"
+                app:cardElevation="@dimen/summary_card_elevation"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/default_large_padding">
+
+                    <TextView
+                        android:id="@+id/india_infected_id"
+                        style="@style/heading_textLarge_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorInfected"
+                        android:text="0" />
+
+                    <TextView
+                        style="@style/body_textMedium_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorInfected"
+                        android:id="@+id/text_view_1"
+                        android:layout_below="@id/india_infected_id"
+                        android:layout_marginTop="@dimen/summary_sub_head_margin"
+                        android:text="@string/infected_text" />
+
+                    <TextView
+                        android:id="@+id/india_recovered_id"
+                        style="@style/heading_textLarge_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:layout_below="@id/text_view_1"
+                        android:textColor="@color/colorRecovered"
+                        android:text="0" />
+
+                    <TextView
+                        style="@style/body_textMedium_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorRecovered"
+                        android:layout_below="@id/india_recovered_id"
+                        android:layout_marginTop="@dimen/summary_sub_head_margin"
+                        android:text="@string/recovered_text" />
+
+                    <TextView
+                        android:id="@+id/india_active_id"
+                        style="@style/heading_textLarge_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorActive"
+                        android:text="0" />
+
+                    <TextView
+                        style="@style/body_textMedium_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/text_view_2"
+                        android:gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/india_active_id"
+                        android:textColor="@color/colorActive"
+                        android:layout_marginTop="@dimen/summary_sub_head_margin"
+                        android:text="@string/active_text" />
+
+                    <TextView
+                        android:id="@+id/india_death_id"
+                        style="@style/heading_textLarge_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/text_view_2"
+                        android:textColor="@color/colorDeaths"
+                        android:text="0" />
+
+                    <TextView
+                        style="@style/body_textMedium_medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorDeaths"
+                        android:layout_below="@+id/india_death_id"
+                        android:layout_marginTop="@dimen/summary_sub_head_margin"
+                        android:text="@string/deaths_text" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_large_padding"
+                android:paddingRight="@dimen/default_large_padding"
+                android:paddingTop="@dimen/default_large_padding"
+                android:alpha="0.4">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/state_text"
+                    style="@style/body_textMedium_bold"
+                    android:textAllCaps="true"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/infected_text"
+                    style="@style/body_textMedium_bold"
+                    android:textAllCaps="true"
+                    android:layout_alignParentEnd="true"
+                    />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:id="@+id/india_data_recycler" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/refresh_fab"
+android:layout_gravity="bottom|end"
+android:layout_margin="16dp"
+android:src="@drawable/ic_icon_refresh_white"
+    app:backgroundTint="@color/primaryAccent"
+
+    />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
