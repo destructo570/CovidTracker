@@ -27,11 +27,11 @@ https://bit.ly/vkCovidTracker
 
 ###CREDITS
 
--Ethan Winters for NovelCOVID Api https://github.com/NovelCOVID/API
--Amod Malviya for covid-19 Api https://github.com/amodm/api-covid19-in
--Drawkit for those beautiful illustrations
+- Ethan Winters for NovelCOVID Api https://github.com/NovelCOVID/API
+- Amod Malviya for covid-19 Api https://github.com/amodm/api-covid19-in
+- Drawkit for those beautiful illustrations
 
 ###App Is Using
--Retrofit
--Gson converter
--Viewmodel, Livedata
+- Retrofit
+- Gson converter
+- Viewmodel, Livedata
