@@ -5,8 +5,13 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
-#### Version 1.0
+### Version 1.0
 https://bit.ly/vkCovidTracker
+
+### Changelog :
+
+## v1.0
+   - Initial version
 
 ### FEATURES : :hash:
 - Global Detailed statistics of covid-19 cases
@@ -18,10 +23,10 @@ https://bit.ly/vkCovidTracker
 
 ### SCREENSHOTS: :iphone:
 
-![alt text](https://i.imgur.com/ydR2H20.jpg) 
+![alt text](https://i.imgur.com/ydR2H20.jpg)
 ![alt text](https://i.imgur.com/z8Y0Q4V.jpg)
 ![alt text](https://i.imgur.com/wAcK2fB.jpg)
-![alt text](https://i.imgur.com/QSQjWWO.jpg) 
+![alt text](https://i.imgur.com/QSQjWWO.jpg)
 ![alt text](https://i.imgur.com/dlxy7XE.jpg)
 ![alt text](https://i.imgur.com/5aYztHM.jpg)
 
