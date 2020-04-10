@@ -5,13 +5,21 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
-### Version 1.0
+#### Version 1.0
 https://bit.ly/vkCovidTracker
+#### Version 1.1
+https://bit.ly/2JVTsjq
 
 ### Changelog :
 
-## v1.0
+#### v1.0
    - Initial version
+#### v1.1
+   - Fix incorrect data displayed in India section
+   - Fixed FAB not hiding on scroll issue
+   - Added FAB animation
+   - Added Detailed statistics for Indian states (Click on any state from list)
+
 
 ### FEATURES : :hash:
 - Global Detailed statistics of covid-19 cases
