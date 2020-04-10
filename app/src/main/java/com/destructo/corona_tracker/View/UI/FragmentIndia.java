@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -82,7 +83,6 @@ public class FragmentIndia extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
 
 
-
         }
     }
 
@@ -107,23 +107,25 @@ public class FragmentIndia extends Fragment {
         indiaViewModel = new ViewModelProvider(this).get(IndiaViewModel.class);
 
 
-        if(checkInternetConnection(getActivity())) {
+        if (checkInternetConnection(getActivity())) {
 
+            observeIndiaSummary(indiaViewModel);
             observeIndiaStateList(indiaViewModel);
 
-        }else{
-            Toast toast = Toast.makeText(getContext(),"Check Your Internet Connection",Toast.LENGTH_LONG);
+
+        } else {
+            Toast toast = Toast.makeText(getContext(), "Check Your Internet Connection", Toast.LENGTH_LONG);
             toast.show();
         }
 
         myFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                observeIndiaSummary(indiaViewModel);
                 observeIndiaStateList(indiaViewModel);
 
             }
         });
-
 
         return rootView;
     }
@@ -133,16 +135,9 @@ public class FragmentIndia extends Fragment {
 
         viewModel.getIndiaStateList().observe(this, indiaCoronaStatistics -> {
 
-            if(indiaCoronaStatistics != null) {
+            if (indiaCoronaStatistics != null) {
 
-                IndiaSummaryModel mSum = indiaCoronaStatistics.getIndiaSummary();
-
-                mTotalInfected.setText(Utils.formatNumber(mSum.getTotalInfected()));
-                mTotalActive.setText(Utils.formatNumber(mSum.getTotalActive()));
-                mTotalRecovered.setText(Utils.formatNumber(mSum.getTotalRecovered()));
-                mTotalDeath.setText(Utils.formatNumber(mSum.getTotalDeaths()));
-
-                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(indiaCoronaStatistics.getStateList());
+                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(indiaCoronaStatistics);
                 mIndiaStateRecycler.setAdapter(mIndiaStateAdapter);
 
             }
@@ -152,10 +147,30 @@ public class FragmentIndia extends Fragment {
     }
 
 
-    private boolean checkInternetConnection (Context context){
+    private void observeIndiaSummary(IndiaViewModel viewModel) {
+
+        viewModel.getIndiaSummary().observe(this, new Observer<IndiaSummaryModel>() {
+            @Override
+            public void onChanged(IndiaSummaryModel indiaSummaryModel) {
+
+                if (indiaSummaryModel != null) {
+
+                    mTotalInfected.setText(Utils.formatNumber(indiaSummaryModel.getTotalInfected()));
+                    mTotalActive.setText(Utils.formatNumber(indiaSummaryModel.getTotalActive()));
+                    mTotalRecovered.setText(Utils.formatNumber(indiaSummaryModel.getTotalRecovered()));
+                    mTotalDeath.setText(Utils.formatNumber(indiaSummaryModel.getTotalDeaths()));
+
+                }
+            }
+        });
+
+    }
+
+
+    private boolean checkInternetConnection(Context context) {
 
         ConnectivityManager cm =
-                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&

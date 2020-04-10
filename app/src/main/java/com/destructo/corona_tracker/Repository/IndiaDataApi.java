@@ -1,6 +1,6 @@
 package com.destructo.corona_tracker.Repository;
 
-import com.destructo.corona_tracker.Model.IndiaCoronaStatistics;
+import com.destructo.corona_tracker.Model.IndiaSummaryModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -9,5 +9,11 @@ public interface IndiaDataApi {
 
 
     @GET("latest")
-    Call<IndiaCoronaStatistics> getIndiaData();
+    Call<Object> getLatestState();
+
+    @GET("latest")
+    Call<IndiaSummaryModel> getLatestSummary();
+
+
+
 }

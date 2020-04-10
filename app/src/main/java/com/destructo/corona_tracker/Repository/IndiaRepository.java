@@ -1,15 +1,17 @@
 package com.destructo.corona_tracker.Repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.destructo.corona_tracker.Model.IndiaDataModel;
-import com.destructo.corona_tracker.Model.IndiaCoronaStatistics;
+import com.destructo.corona_tracker.Model.IndiaStateDeserializer;
 import com.destructo.corona_tracker.Model.IndiaStateModel;
+import com.destructo.corona_tracker.Model.IndiaSumDeserializer;
 import com.destructo.corona_tracker.Model.IndiaSummaryModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -26,40 +28,71 @@ public class IndiaRepository {
     private IndiaDataApi indiaDataApi;
 
 
-    public LiveData<IndiaCoronaStatistics> getIndiaStats() {
+    public LiveData<IndiaSummaryModel> getIndiaSummary(){
 
-        final MutableLiveData<IndiaCoronaStatistics> indiaStateStats = new MutableLiveData<>();
+        final MutableLiveData<IndiaSummaryModel> indiaSummaryStats = new MutableLiveData<>();
 
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(IndiaSummaryModel.class, new IndiaSumDeserializer())
+                .create();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_STAT_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         indiaDataApi = retrofit.create(IndiaDataApi.class);
 
-        Call<IndiaCoronaStatistics> call = indiaDataApi.getIndiaData();
+        Call<IndiaSummaryModel> call = indiaDataApi.getLatestSummary();
 
-        call.enqueue(new Callback<IndiaCoronaStatistics>() {
+        call.enqueue(new Callback<IndiaSummaryModel>() {
             @Override
-            public void onResponse(Call<IndiaCoronaStatistics> call, Response<IndiaCoronaStatistics> response) {
-                if (!response.isSuccessful()) {
-                    Log.e("IndiaRepository", "Response Unsuccessful, CODE : " + response.code());
+            public void onResponse(Call<IndiaSummaryModel> call, Response<IndiaSummaryModel> response) {
 
-                }
+                    indiaSummaryStats.setValue(response.body());
 
-                indiaStateStats.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<IndiaCoronaStatistics> call, Throwable t) {
-
-                Log.e("IndiaRepository", "Response Failure, CODE : " + t.getMessage());
+            public void onFailure(Call<IndiaSummaryModel> call, Throwable t) {
 
             }
         });
+        return indiaSummaryStats;
+    }
+
+    public LiveData<ArrayList<IndiaStateModel>> getIndiaStates(){
+
+        final MutableLiveData<ArrayList<IndiaStateModel>> indiaStateList = new MutableLiveData<>();
 
 
-        return indiaStateStats;
+        Type listType = new TypeToken<ArrayList<IndiaStateModel>>(){}.getType();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(listType, new IndiaStateDeserializer())
+                .create();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_STAT_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        indiaDataApi = retrofit.create(IndiaDataApi.class);
+
+        Call<Object> call = indiaDataApi.getLatestState();
+
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+
+                indiaStateList.setValue(gson.fromJson(gson.toJson(response.body()), listType));
+
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+            }
+        });
+        return indiaStateList;
     }
 }
