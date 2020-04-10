@@ -19,6 +19,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/global_nsv"
         android:layout_gravity="center|bottom"
         app:layout_anchorGravity="bottom|center_vertical">
 

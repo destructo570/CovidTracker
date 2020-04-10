@@ -10,6 +10,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 
 import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -104,7 +105,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         totalRecovered = rootView.findViewById(R.id.global_recovered_id);
         totalActive = rootView.findViewById(R.id.global_active_id);
         globalStat = rootView.findViewById(R.id.global_more_button);
-
+        NestedScrollView mNestedScrollView = rootView.findViewById(R.id.global_nsv);
 
         globalViewModel = new ViewModelProvider(this).get(GlobalViewModel.class);
 
@@ -124,6 +125,17 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                 ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
                 observeGlobalSummary(globalViewModel);
                 observeGlobalCountry(globalViewModel);
+            }
+        });
+
+        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > oldScrollY) {
+                    refreshFab.hide();
+                } else {
+                    refreshFab.show();
+                }
             }
         });
 

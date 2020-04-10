@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -109,6 +110,7 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
         mTotalActive = rootView.findViewById(R.id.india_active_id);
         mTotalRecovered = rootView.findViewById(R.id.india_recovered_id);
         mTotalDeath = rootView.findViewById(R.id.india_death_id);
+        NestedScrollView mNestedScrollView = rootView.findViewById(R.id.india_nsv);
 
         FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
 
@@ -132,6 +134,17 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
                 ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
                 observeIndiaSummary(indiaViewModel);
                 observeIndiaStateList(indiaViewModel);
+            }
+        });
+
+        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > oldScrollY) {
+                    refreshFab.hide();
+                } else {
+                    refreshFab.show();
+                }
             }
         });
 
