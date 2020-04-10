@@ -1,5 +1,6 @@
 package com.destructo.corona_tracker.view.ui;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -128,9 +129,9 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
         refreshFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
                 observeIndiaSummary(indiaViewModel);
                 observeIndiaStateList(indiaViewModel);
-
             }
         });
 
