@@ -13,7 +13,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:tag="@string/frag_tag_global"
-    tools:context=".View.UI.FragmentGlobal">
+    tools:context=".view.ui.FragmentGlobal">
 
 
     <androidx.core.widget.NestedScrollView

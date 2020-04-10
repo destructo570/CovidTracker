@@ -13,7 +13,7 @@
         android:tag="@string/frag_tag_about"
         android:paddingStart="@dimen/default_large_padding"
         android:paddingEnd="@dimen/default_large_padding"
-        tools:context=".View.UI.FragmentAbout">
+        tools:context=".view.ui.FragmentAbout">
 
         <LinearLayout
             android:layout_width="match_parent"

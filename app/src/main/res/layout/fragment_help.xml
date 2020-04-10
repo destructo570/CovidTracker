@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:tag="@string/frag_tag_help"
-    tools:context=".View.UI.FragmentHelp">
+    tools:context=".view.ui.FragmentHelp">
 
 
     <LinearLayout

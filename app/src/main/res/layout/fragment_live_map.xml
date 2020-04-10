@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="@string/frag_tag_livemap"
-    tools:context=".View.UI.FragmentLiveMap">
+    tools:context=".view.ui.FragmentLiveMap">
 
     <WebView
         android:layout_width="match_parent"

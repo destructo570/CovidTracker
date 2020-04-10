@@ -23,7 +23,7 @@
             android:layout_marginLeft="@dimen/default_large_margin"
             android:layout_marginRight="@dimen/default_large_margin"
             android:orientation="vertical"
-            tools:context=".View.UI.CoronaInfoActivity">
+            tools:context=".view.ui.CoronaInfoActivity">
 
             <TextView
                 style="@style/heading_textLarge_bold"

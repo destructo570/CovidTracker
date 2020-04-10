@@ -12,13 +12,13 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
-        <activity android:name=".View.UI.GlobalDetails"></activity>
-        <activity android:name=".ViewModel.CountryDetails" />
+        <activity android:name=".view.ui.GlobalDetails"></activity>
+        <activity android:name=".viewModel.CountryDetails" />
         <activity
-            android:name=".View.UI.HelplineActivity"
+            android:name=".view.ui.HelplineActivity"
             android:label="@string/title_helpline" />
-        <activity android:name=".View.UI.CoronaInfoActivity" />
-        <activity android:name=".View.UI.MainActivity">
+        <activity android:name=".view.ui.CoronaInfoActivity" />
+        <activity android:name=".view.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
