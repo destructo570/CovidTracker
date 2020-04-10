@@ -38,7 +38,7 @@ public class IndiaDataRecyclerAdapter extends RecyclerView.Adapter<IndiaDataRecy
 
         holder.state.setText(currentCountry.getState());
 
-        holder.infected.setText(Utils.formatNumber(currentCountry.getInfectedIndian()));
+        holder.infected.setText(Utils.formatNumber(currentCountry.getTotalConfirmed()));
     }
 
 

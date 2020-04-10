@@ -30,7 +30,9 @@ public class IndiaStateDeserializer implements JsonDeserializer {
                     state.get("confirmedCasesIndian").getAsInt(),
                     state.get("confirmedCasesForeign").getAsInt(),
                     state.get("discharged").getAsInt(),
-                    state.get("deaths").getAsInt()));
+                    state.get("deaths").getAsInt(),
+                    state.get("totalConfirmed").getAsInt()
+            ));
         }
 
         return output;

@@ -6,15 +6,10 @@ import java.util.List;
 
 public class IndiaSummaryModel {
 
-    @SerializedName("total")
     private int mTotalInfected;
-    @SerializedName("confirmedCasesIndian")
     private int mTotalCasesIndian;
-    @SerializedName("confirmedCasesForeign")
     private int mTotalCasesForeign;
-    @SerializedName("discharged")
     private int mTotalRecovered;
-    @SerializedName("deaths")
     private int mTotalDeaths;
 
     public IndiaSummaryModel(int mTotalInfected, int mTotalCasesIndian, int mTotalCasesForeign, int mTotalRecovered, int mTotalDeaths) {

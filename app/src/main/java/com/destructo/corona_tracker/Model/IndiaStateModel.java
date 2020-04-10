@@ -4,28 +4,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class IndiaStateModel {
 
-    @SerializedName("loc")
     private String mState;
-    @SerializedName("confirmedCasesIndian")
     private int mInfectedIndian;
-    @SerializedName("confirmedCasesForeign")
     private int mInfectedForeign;
-    @SerializedName("discharged")
     private int mRecovered;
-    @SerializedName("deaths")
     private int mDeaths;
+    private int mTotalInfected;
 
 
-//    private transient int mConfirmedCasesTotal;
-//    private transient int mActive;
-
-
-    public IndiaStateModel(String mState, int mInfectedIndian, int mInfectedForeign, int mRecovered, int mDeaths) {
-        this.mState = mState;
-        this.mInfectedIndian = mInfectedIndian;
-        this.mInfectedForeign = mInfectedForeign;
-        this.mRecovered = mRecovered;
-        this.mDeaths = mDeaths;
+    public IndiaStateModel(String State, int InfectedIndian, int InfectedForeign, int Recovered, int Deaths, int TotalInfected) {
+        this.mState = State;
+        this.mInfectedIndian = InfectedIndian;
+        this.mInfectedForeign = InfectedForeign;
+        this.mRecovered = Recovered;
+        this.mDeaths = Deaths;
+        this.mTotalInfected = TotalInfected;
 
     }
 
@@ -50,11 +43,11 @@ public class IndiaStateModel {
     }
 
     public int getTotalConfirmed() {
-        return (mInfectedIndian + mInfectedForeign);
+        return mTotalInfected;
     }
 
     public int getActiveCases() {
-        return ((mInfectedIndian + mInfectedForeign) - (mDeaths + mRecovered));
+        return ((mTotalInfected) - (mDeaths + mRecovered));
     }
 
 }
