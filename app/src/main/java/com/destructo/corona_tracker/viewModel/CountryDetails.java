@@ -31,16 +31,16 @@ public class CountryDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_details);
 
-        totalCases = findViewById(R.id.state_name);
-        totalActive = findViewById(R.id.total_infected);
-        totalRecovered =findViewById(R.id.total_indian);
-        totalDeaths = findViewById(R.id.total_foreign);
+        totalCases = findViewById(R.id.country_total_infected);
+        totalActive = findViewById(R.id.country_total_active);
+        totalRecovered =findViewById(R.id.country_total_recovered);
+        totalDeaths = findViewById(R.id.country_total_deaths);
 
-        critical = findViewById(R.id.total_active);
-        todayCases = findViewById(R.id.total_deaths);
-        todayDeaths =findViewById(R.id.total_deaths);
-        casesPerMillion = findViewById(R.id.cases_per_million);
-        deathsPerMillion = findViewById(R.id.death_per_million);
+        critical = findViewById(R.id.country_total_critical);
+        todayCases = findViewById(R.id.country_total_new);
+        todayDeaths =findViewById(R.id.country_deaths_today);
+        casesPerMillion = findViewById(R.id.country_cases_per_million);
+        deathsPerMillion = findViewById(R.id.country_deaths_per_million);
         lastUpdated = findViewById(R.id.last_update);
 
         upDateUi();
