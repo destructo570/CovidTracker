@@ -55,7 +55,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     private TextView totalRecovered;
     private TextView totalActive;
     private Button globalStat;
-    private FloatingActionButton myFab;
     private ArrayList<GlobalCoronaCountryStatistics> countryData;
     private GlobalCoronaStatistics globalData;
 
@@ -93,7 +92,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_global, container, false);
-        myFab = rootView.findViewById(R.id.refresh_fab);
+        FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
         mRecylcer = rootView.findViewById(R.id.global_data_recycler);
         mRecylcer.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL, false));
 
@@ -116,7 +115,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             toast.show();
         }
 
-        myFab.setOnClickListener(new View.OnClickListener() {
+        refreshFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 observeGlobalSummary(globalViewModel);

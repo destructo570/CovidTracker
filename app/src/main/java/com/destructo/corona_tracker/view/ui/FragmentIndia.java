@@ -1,6 +1,7 @@
 package com.destructo.corona_tracker.view.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -17,12 +18,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.destructo.corona_tracker.model.IndiaStateModel;
 import com.destructo.corona_tracker.model.IndiaSummaryModel;
 import com.destructo.corona_tracker.view.adapter.IndiaDataRecyclerAdapter;
 import com.destructo.corona_tracker.R;
 import com.destructo.corona_tracker.view.adapter.Utils;
+import com.destructo.corona_tracker.viewModel.CountryDetails;
 import com.destructo.corona_tracker.viewModel.IndiaViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 
 /**
@@ -30,7 +36,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * Use the {@link FragmentIndia#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentIndia extends Fragment {
+public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.onStateClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,7 +53,7 @@ public class FragmentIndia extends Fragment {
 
     private RecyclerView mIndiaStateRecycler;
     private IndiaDataRecyclerAdapter mIndiaStateAdapter;
-    private FloatingActionButton myFab;
+    private ArrayList<IndiaStateModel> mStateData;
 
     private IndiaViewModel indiaViewModel;
     public static boolean INSTANCE = false;
@@ -103,7 +109,7 @@ public class FragmentIndia extends Fragment {
         mTotalRecovered = rootView.findViewById(R.id.india_recovered_id);
         mTotalDeath = rootView.findViewById(R.id.india_death_id);
 
-        myFab = rootView.findViewById(R.id.refresh_fab);
+        FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
 
         indiaViewModel = new ViewModelProvider(this).get(IndiaViewModel.class);
 
@@ -119,7 +125,7 @@ public class FragmentIndia extends Fragment {
             toast.show();
         }
 
-        myFab.setOnClickListener(new View.OnClickListener() {
+        refreshFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 observeIndiaSummary(indiaViewModel);
@@ -134,11 +140,11 @@ public class FragmentIndia extends Fragment {
 
     private void observeIndiaStateList(IndiaViewModel viewModel) {
 
-        viewModel.getIndiaStateList().observe(this, indiaCoronaStatistics -> {
+        viewModel.getIndiaStateList().observe(this, stateList -> {
 
-            if (indiaCoronaStatistics != null) {
-
-                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(indiaCoronaStatistics);
+            if (stateList != null) {
+                mStateData = stateList;
+                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(mStateData,this);
                 mIndiaStateRecycler.setAdapter(mIndiaStateAdapter);
 
             }
@@ -178,5 +184,16 @@ public class FragmentIndia extends Fragment {
                 activeNetwork.isConnectedOrConnecting();
 
         return isConnected;
+    }
+
+    @Override
+    public void onStateClick(int position) {
+
+
+        Gson gson = new Gson();
+        String sum = gson.toJson(mStateData.get(position));
+        Intent intent = new Intent(getContext(), StateDetails.class);
+        intent.putExtra("SUMMARY", sum);
+        startActivity(intent);
     }
 }

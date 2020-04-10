@@ -15,7 +15,7 @@
         android:layout_marginBottom="264dp"
         android:text="Deaths Per One Million"
         app:layout_constraintBottom_toTopOf="@+id/last_update"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,14 +46,14 @@
         android:layout_marginBottom="16dp"
         android:text="Cases Per One Million"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/total_new_deaths"
+        android:id="@+id/total_deaths"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_new_cases" />
+        app:layout_constraintTop_toBottomOf="@+id/total_deaths" />
 
     <TextView
         android:id="@+id/cases_per_million"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_new_deaths" />
+        app:layout_constraintTop_toBottomOf="@+id/total_deaths" />
 
     <TextView
         android:id="@+id/textView6"
@@ -92,7 +92,7 @@
         android:layout_marginBottom="16dp"
         android:text="Deaths Today"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,14 +108,14 @@
         android:layout_marginBottom="16dp"
         android:text="New Cases Today"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/total_new_cases"
+        android:id="@+id/total_deaths"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -123,11 +123,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Text View"
-        app:layout_constraintBottom_toTopOf="@+id/total_new_deaths"
+        app:layout_constraintBottom_toTopOf="@+id/total_deaths"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_critical" />
+        app:layout_constraintTop_toBottomOf="@+id/total_active" />
 
     <TextView
         android:id="@+id/textView2"
@@ -139,14 +139,14 @@
         android:layout_marginBottom="16dp"
         android:text="Total Critical Cases"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/total_critical"
+        android:id="@+id/total_active"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,11 +154,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Text View"
-        app:layout_constraintBottom_toTopOf="@+id/total_new_cases"
+        app:layout_constraintBottom_toTopOf="@+id/total_deaths"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_deaths" />
+        app:layout_constraintTop_toBottomOf="@+id/total_foreign" />
 
     <TextView
         android:id="@+id/textView19"
@@ -170,14 +170,14 @@
         android:layout_marginBottom="16dp"
         android:text="Total Deaths"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/total_deaths"
+        android:id="@+id/total_foreign"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -185,14 +185,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Text View"
-        app:layout_constraintBottom_toTopOf="@+id/total_critical"
+        app:layout_constraintBottom_toTopOf="@+id/total_active"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_recovered" />
+        app:layout_constraintTop_toBottomOf="@+id/total_indian" />
 
     <TextView
-        android:id="@+id/total_recovered"
+        android:id="@+id/total_indian"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -200,11 +200,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/total_deaths"
+        app:layout_constraintBottom_toTopOf="@+id/total_foreign"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/total_active" />
+        app:layout_constraintTop_toBottomOf="@+id/total_infected" />
 
     <TextView
         android:id="@+id/textView17"
@@ -216,14 +216,14 @@
         android:layout_marginBottom="16dp"
         android:text="Total Recovered"
         app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toStartOf="@+id/total_recovered"
+        app:layout_constraintEnd_toStartOf="@+id/total_indian"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/total_active"
+        android:id="@+id/total_infected"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -231,11 +231,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/total_recovered"
+        app:layout_constraintBottom_toTopOf="@+id/total_indian"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/total_cases" />
+        app:layout_constraintTop_toBottomOf="@+id/state_name" />
 
     <TextView
         android:id="@+id/textView15"
@@ -247,7 +247,7 @@
         android:layout_marginBottom="16dp"
         android:text="Total Active"
         app:layout_constraintBottom_toTopOf="@+id/textView17"
-        app:layout_constraintEnd_toStartOf="@+id/total_active"
+        app:layout_constraintEnd_toStartOf="@+id/total_infected"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -263,14 +263,14 @@
         android:layout_marginBottom="16dp"
         android:text="Total Infected"
         app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toStartOf="@+id/total_cases"
+        app:layout_constraintEnd_toStartOf="@+id/state_name"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/total_cases"
+        android:id="@+id/state_name"
         style="@style/body_text_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -278,7 +278,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/total_active"
+        app:layout_constraintBottom_toTopOf="@+id/total_infected"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView5"

@@ -16,10 +16,12 @@ import java.util.ArrayList;
 public class IndiaDataRecyclerAdapter extends RecyclerView.Adapter<IndiaDataRecyclerAdapter.MyViewHolder> {
 
     private ArrayList<IndiaStateModel> mStateList;
+    private onStateClickListener mOnStateClickListener;
 
-    public IndiaDataRecyclerAdapter(ArrayList<IndiaStateModel> stateData) {
+    public IndiaDataRecyclerAdapter(ArrayList<IndiaStateModel> stateData, onStateClickListener stateClickListener) {
 
         mStateList = stateData;
+        mOnStateClickListener = stateClickListener;
     }
 
     @NonNull
@@ -28,7 +30,7 @@ public class IndiaDataRecyclerAdapter extends RecyclerView.Adapter<IndiaDataRecy
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.india_data_item_view, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView, mOnStateClickListener);
     }
 
     @Override
@@ -47,15 +49,27 @@ public class IndiaDataRecyclerAdapter extends RecyclerView.Adapter<IndiaDataRecy
         return mStateList.size();
     }
 
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView state, infected;
+        onStateClickListener stateListener;
 
-        MyViewHolder(@NonNull View itemView) {
+        MyViewHolder(@NonNull View itemView, onStateClickListener listener) {
             super(itemView);
 
             state = itemView.findViewById(R.id.country_name_id);
-
             infected = itemView.findViewById(R.id.country_infected_id);
+            stateListener = listener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            stateListener.onStateClick(getAdapterPosition());
+        }
+    }
+
+    public interface onStateClickListener{
+
+        void onStateClick(int position);
     }
 }
