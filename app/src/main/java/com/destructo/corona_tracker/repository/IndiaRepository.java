@@ -28,7 +28,7 @@ public class IndiaRepository {
     private IndiaDataApi indiaDataApi;
 
 
-    public LiveData<IndiaSummaryModel> getIndiaSummary(){
+    public MutableLiveData<IndiaSummaryModel> getIndiaSummary(){
 
         final MutableLiveData<IndiaSummaryModel> indiaSummaryStats = new MutableLiveData<>();
 
@@ -61,7 +61,7 @@ public class IndiaRepository {
         return indiaSummaryStats;
     }
 
-    public LiveData<ArrayList<IndiaStateModel>> getIndiaStates(){
+    public MutableLiveData<ArrayList<IndiaStateModel>> getIndiaStates(){
 
         final MutableLiveData<ArrayList<IndiaStateModel>> indiaStateList = new MutableLiveData<>();
 

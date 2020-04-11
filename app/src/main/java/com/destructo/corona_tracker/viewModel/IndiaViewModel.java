@@ -1,6 +1,7 @@
 package com.destructo.corona_tracker.viewModel;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.destructo.corona_tracker.model.IndiaStateModel;
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 public class IndiaViewModel extends ViewModel {
 
     private IndiaRepository indiaRepository;
+    private MutableLiveData<ArrayList<IndiaStateModel>> indiaStateList;
+    private MutableLiveData<IndiaSummaryModel> indiaSummary;
 
     public IndiaViewModel() {
 
@@ -19,14 +22,20 @@ public class IndiaViewModel extends ViewModel {
 
     }
 
-    public LiveData<ArrayList<IndiaStateModel>> getIndiaStateList() {
+    public MutableLiveData<ArrayList<IndiaStateModel>> getIndiaStateList() {
 
-        return indiaRepository.getIndiaStates();
+        if (indiaStateList == null) {
+            indiaStateList = indiaRepository.getIndiaStates();
+        }
+        return indiaStateList;
     }
 
-    public LiveData<IndiaSummaryModel> getIndiaSummary() {
+    public MutableLiveData<IndiaSummaryModel> getIndiaSummary() {
 
-        return indiaRepository.getIndiaSummary();
+        if (indiaStateList == null) {
+            indiaSummary = indiaRepository.getIndiaSummary();
+        }
+        return indiaSummary;
     }
 
 }

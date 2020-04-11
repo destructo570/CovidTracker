@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 /**
@@ -58,7 +60,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     private TextView totalDeath;
     private TextView totalRecovered;
     private TextView totalActive;
-    private Button globalStat;
     private ArrayList<GlobalCoronaCountryStatistics> countryData;
     private GlobalCoronaStatistics globalData;
 
@@ -88,6 +89,8 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        globalViewModel = new ViewModelProvider(this).get(GlobalViewModel.class);
+
     }
 
     @SuppressLint("ShowToast")
@@ -104,14 +107,12 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         totalDeath = rootView.findViewById(R.id.global_death_id);
         totalRecovered = rootView.findViewById(R.id.global_recovered_id);
         totalActive = rootView.findViewById(R.id.global_active_id);
-        globalStat = rootView.findViewById(R.id.global_more_button);
+        Button globalStat = rootView.findViewById(R.id.global_more_button);
         NestedScrollView mNestedScrollView = rootView.findViewById(R.id.global_nsv);
 
-        globalViewModel = new ViewModelProvider(this).get(GlobalViewModel.class);
+        if(checkInternetConnection(Objects.requireNonNull(getActivity()))) {
 
-        if(checkInternetConnection(getActivity())) {
-
-            observeGlobalSummary(globalViewModel);
+            observeNew(globalViewModel);
             observeGlobalCountry(globalViewModel);
 
         }else{
@@ -123,7 +124,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             @Override
             public void onClick(View v) {
                 ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
-                observeGlobalSummary(globalViewModel);
+                observeNew(globalViewModel);
                 observeGlobalCountry(globalViewModel);
             }
         });
@@ -158,20 +159,20 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         return rootView;
     }
 
-    private void observeGlobalSummary(GlobalViewModel viewModel) {
 
-        viewModel.getGlobalSummary().observe(this, globalCoronaStatistics -> {
+    private void observeNew(GlobalViewModel viewModel) {
+        viewModel.getGlobalSummary().observe(this, new Observer<GlobalCoronaStatistics>() {
+            @Override
+            public void onChanged(GlobalCoronaStatistics globalCoronaStatistics) {
 
-            globalData = globalCoronaStatistics;
+                if(globalCoronaStatistics != null) {
 
-            if(globalData != null) {
-
-                totalInfection.setText(Utils.formatNumber(globalData.getTotalInfected()));
-                totalDeath.setText(Utils.formatNumber(globalData.getTotalDeaths()));
-                totalRecovered.setText(Utils.formatNumber(globalData.getTotalRecovered()));
-                totalActive.setText(Utils.formatNumber(globalData.getTotalActive()));
+                    totalInfection.setText(Utils.formatNumber(globalCoronaStatistics.getTotalInfected()));
+                    totalDeath.setText(Utils.formatNumber(globalCoronaStatistics.getTotalDeaths()));
+                    totalRecovered.setText(Utils.formatNumber(globalCoronaStatistics.getTotalRecovered()));
+                    totalActive.setText(Utils.formatNumber(globalCoronaStatistics.getTotalActive()));
+                }
             }
-
         });
     }
 

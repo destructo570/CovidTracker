@@ -23,7 +23,7 @@ public class GlobalRepository {
     private GlobalDataApi globalDataApi;
 
 
-    public LiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
+    public MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
 
         final MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> globalCountrySummary = new MutableLiveData<>();
 
@@ -60,7 +60,7 @@ public class GlobalRepository {
     }
 
 
-    public LiveData<GlobalCoronaStatistics> getGlobalSummary() {
+    public MutableLiveData<GlobalCoronaStatistics> getGlobalSummary() {
 
         final MutableLiveData<GlobalCoronaStatistics> globalSummaryStats = new MutableLiveData<>();
 

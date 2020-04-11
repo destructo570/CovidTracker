@@ -1,6 +1,7 @@
 package com.destructo.corona_tracker.viewModel;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.destructo.corona_tracker.model.GlobalCoronaCountryStatistics;
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 public class GlobalViewModel extends ViewModel {
 
     private GlobalRepository globalRepository;
+    private MutableLiveData<GlobalCoronaStatistics> globalSummary;
+    private MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> globalCountrySummary;
 
 
     public GlobalViewModel() {
@@ -20,15 +23,22 @@ public class GlobalViewModel extends ViewModel {
     }
 
 
-    public LiveData<GlobalCoronaStatistics> getGlobalSummary() {
+    public MutableLiveData<GlobalCoronaStatistics> getGlobalSummary() {
 
-        return globalRepository.getGlobalSummary();
+        if(globalSummary == null) {
+            globalSummary = globalRepository.getGlobalSummary();
+        }
+
+        return globalSummary;
     }
 
 
-    public LiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
+    public MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
 
-        return globalRepository.getGlobalCountrySummary();
+        if(globalCountrySummary == null) {
+            globalCountrySummary = globalRepository.getGlobalCountrySummary();
+        }
+        return globalCountrySummary;
     }
 
 }

@@ -90,8 +90,9 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
 
-
         }
+
+        indiaViewModel = new ViewModelProvider(this).get(IndiaViewModel.class);
 
     }
 
@@ -100,8 +101,6 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_india, container, false);
-
-        getActivity();
 
         mIndiaStateRecycler = rootView.findViewById(R.id.india_data_recycler);
         mIndiaStateRecycler.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL, false));
@@ -113,9 +112,6 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
         NestedScrollView mNestedScrollView = rootView.findViewById(R.id.india_nsv);
 
         FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
-
-        indiaViewModel = new ViewModelProvider(this).get(IndiaViewModel.class);
-
 
         if (checkInternetConnection(getActivity())) {
 
