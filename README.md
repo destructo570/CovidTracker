@@ -5,10 +5,11 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
-#### Version 1.0
-https://bit.ly/vkCovidTracker
 #### Version 1.1
 https://bit.ly/2JVTsjq
+
+#### Version 1.0
+https://bit.ly/vkCovidTracker
 
 ### Changelog :
 
