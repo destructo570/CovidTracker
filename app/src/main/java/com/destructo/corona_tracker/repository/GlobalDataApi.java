@@ -10,10 +10,10 @@ import retrofit2.http.GET;
 
 public interface GlobalDataApi {
 
-    @GET("all")
+    @GET("v2/all")
     Call<GlobalCoronaStatistics> getGlobalSummary();
 
-    @GET("countries")
+    @GET("v2/countries")
     Call<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary();
 
 }
