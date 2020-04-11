@@ -9,7 +9,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 
-import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
@@ -21,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -112,7 +110,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
 
         if(checkInternetConnection(Objects.requireNonNull(getActivity()))) {
 
-            observeNew(globalViewModel);
+            observeGlobalSummary(globalViewModel);
             observeGlobalCountry(globalViewModel);
 
         }else{
@@ -124,7 +122,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             @Override
             public void onClick(View v) {
                 ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
-                observeNew(globalViewModel);
+                observeGlobalSummary(globalViewModel);
                 observeGlobalCountry(globalViewModel);
             }
         });
@@ -160,13 +158,13 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     }
 
 
-    private void observeNew(GlobalViewModel viewModel) {
+    private void observeGlobalSummary(GlobalViewModel viewModel) {
         viewModel.getGlobalSummary().observe(this, new Observer<GlobalCoronaStatistics>() {
             @Override
             public void onChanged(GlobalCoronaStatistics globalCoronaStatistics) {
 
                 if(globalCoronaStatistics != null) {
-
+                    globalData = globalCoronaStatistics;
                     totalInfection.setText(Utils.formatNumber(globalCoronaStatistics.getTotalInfected()));
                     totalDeath.setText(Utils.formatNumber(globalCoronaStatistics.getTotalDeaths()));
                     totalRecovered.setText(Utils.formatNumber(globalCoronaStatistics.getTotalRecovered()));
