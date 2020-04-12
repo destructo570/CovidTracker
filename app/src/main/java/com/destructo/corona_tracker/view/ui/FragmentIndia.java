@@ -31,6 +31,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 /**
@@ -99,6 +100,7 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Objects.requireNonNull(getActivity()).setTitle(R.string.title_india_stats);
 
         View rootView = inflater.inflate(R.layout.fragment_india, container, false);
 

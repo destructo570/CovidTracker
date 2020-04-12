@@ -14,6 +14,8 @@ import android.widget.Button;
 
 import com.destructo.corona_tracker.R;
 
+import java.util.Objects;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,6 +74,7 @@ public class FragmentAbout extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Objects.requireNonNull(getActivity()).setTitle(R.string.title_about);
 
         View rootView =  inflater.inflate(R.layout.fragment_about, container, false);
 

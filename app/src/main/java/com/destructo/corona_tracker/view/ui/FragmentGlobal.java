@@ -95,7 +95,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        Objects.requireNonNull(getActivity()).setTitle(R.string.title_global);
         View rootView = inflater.inflate(R.layout.fragment_global, container, false);
         FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
         mRecylcer = rootView.findViewById(R.id.global_data_recycler);

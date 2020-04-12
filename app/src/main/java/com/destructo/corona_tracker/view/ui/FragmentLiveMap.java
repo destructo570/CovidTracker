@@ -13,6 +13,8 @@ import android.webkit.WebViewClient;
 
 import com.destructo.corona_tracker.R;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentLiveMap#newInstance} factory method to
@@ -65,6 +67,8 @@ public class FragmentLiveMap extends Fragment implements HandleBackPress{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Objects.requireNonNull(getActivity()).setTitle(R.string.title_live_map);
+
 
         View rootView =  inflater.inflate(R.layout.fragment_live_map, container, false);
 
