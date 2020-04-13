@@ -17,13 +17,10 @@ public class IndiaViewModel extends ViewModel {
     private MutableLiveData<IndiaSummaryModel> indiaSummary;
 
     public IndiaViewModel() {
-
         indiaRepository = new IndiaRepository();
-
     }
 
     public MutableLiveData<ArrayList<IndiaStateModel>> getIndiaStateList() {
-
         if (indiaStateList == null) {
             indiaStateList = indiaRepository.getIndiaStates();
         }
@@ -31,11 +28,9 @@ public class IndiaViewModel extends ViewModel {
     }
 
     public MutableLiveData<IndiaSummaryModel> getIndiaSummary() {
-
         if (indiaStateList == null) {
             indiaSummary = indiaRepository.getIndiaSummary();
         }
         return indiaSummary;
     }
-
 }

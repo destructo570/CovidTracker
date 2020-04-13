@@ -39,7 +39,7 @@ import java.util.Objects;
  * Use the {@link FragmentIndia#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.onStateClickListener{
+public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.onStateClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -120,7 +120,6 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
             observeIndiaSummary(indiaViewModel);
             observeIndiaStateList(indiaViewModel);
 
-
         } else {
             Toast toast = Toast.makeText(getContext(), "Check Your Internet Connection", Toast.LENGTH_LONG);
             toast.show();
@@ -156,7 +155,7 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
 
             if (stateList != null) {
                 mStateData = stateList;
-                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(mStateData,this);
+                mIndiaStateAdapter = new IndiaDataRecyclerAdapter(mStateData, this);
                 mIndiaStateRecycler.setAdapter(mIndiaStateAdapter);
 
             }

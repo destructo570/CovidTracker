@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ import java.util.Objects;
  * Use the {@link FragmentGlobal#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapter.onCountryClickListener{
+public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapter.onCountryClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -100,7 +101,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
         mRecylcer = rootView.findViewById(R.id.global_data_recycler);
         mRecylcer.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL, false));
-
         totalInfection = rootView.findViewById(R.id.global_infection_id);
         totalDeath = rootView.findViewById(R.id.global_death_id);
         totalRecovered = rootView.findViewById(R.id.global_recovered_id);
@@ -108,22 +108,26 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         Button globalStat = rootView.findViewById(R.id.global_more_button);
         NestedScrollView mNestedScrollView = rootView.findViewById(R.id.global_nsv);
 
-        if(checkInternetConnection(Objects.requireNonNull(getActivity()))) {
+
+        if (checkInternetConnection(Objects.requireNonNull(getActivity()))) {
 
             observeGlobalSummary(globalViewModel);
             observeGlobalCountry(globalViewModel);
 
-        }else{
-            Toast toast = Toast.makeText(getContext(),"Check Your Internet Connection",Toast.LENGTH_LONG);
+        } else {
+            Toast toast = Toast.makeText(getContext(), "Check Your Internet Connection", Toast.LENGTH_LONG);
             toast.show();
         }
 
         refreshFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
+
                 observeGlobalSummary(globalViewModel);
                 observeGlobalCountry(globalViewModel);
+
             }
         });
 
@@ -142,7 +146,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             @Override
             public void onClick(View v) {
 
-                if(globalData != null) {
+                if (globalData != null) {
 
                     Gson gson = new Gson();
                     String sum = gson.toJson(globalData);
@@ -163,7 +167,8 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             @Override
             public void onChanged(GlobalCoronaStatistics globalCoronaStatistics) {
 
-                if(globalCoronaStatistics != null) {
+                if (globalCoronaStatistics != null) {
+
                     globalData = globalCoronaStatistics;
                     totalInfection.setText(Utils.formatNumber(globalCoronaStatistics.getTotalInfected()));
                     totalDeath.setText(Utils.formatNumber(globalCoronaStatistics.getTotalDeaths()));
@@ -177,17 +182,22 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     private void observeGlobalCountry(GlobalViewModel viewModel) {
 
         viewModel.getGlobalCountrySummary().observe(this, globalCoronaCountryStats -> {
-            countryData = globalCoronaCountryStats;
-            mAdapter = new GlobalDataRecyclerAdapter(globalCoronaCountryStats, this);
-            mRecylcer.setAdapter(mAdapter);
+
+            if (globalCoronaCountryStats != null ) {
+
+                countryData = globalCoronaCountryStats;
+                mAdapter = new GlobalDataRecyclerAdapter(globalCoronaCountryStats, this);
+                mRecylcer.setAdapter(mAdapter);
+
+            }
         });
     }
 
 
-    private boolean checkInternetConnection (Context context){
+    private boolean checkInternetConnection(Context context) {
 
         ConnectivityManager cm =
-                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null &&
@@ -206,5 +216,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         intent.putExtra("SUMMARY", sum);
         startActivity(intent);
     }
+
+
 
 }

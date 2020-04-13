@@ -16,29 +16,23 @@ public class GlobalViewModel extends ViewModel {
     private MutableLiveData<GlobalCoronaStatistics> globalSummary;
     private MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> globalCountrySummary;
 
-
     public GlobalViewModel() {
         globalRepository = new GlobalRepository();
-
     }
 
-
     public MutableLiveData<GlobalCoronaStatistics> getGlobalSummary() {
-
         if(globalSummary == null) {
             globalSummary = globalRepository.getGlobalSummary();
         }
-
         return globalSummary;
     }
 
-
     public MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
-
         if(globalCountrySummary == null) {
             globalCountrySummary = globalRepository.getGlobalCountrySummary();
         }
         return globalCountrySummary;
     }
+
 
 }

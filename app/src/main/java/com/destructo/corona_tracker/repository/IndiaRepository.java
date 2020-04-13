@@ -22,13 +22,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class IndiaRepository {
 
-
     private final String BASE_STAT_URL = "https://api.rootnet.in/covid19-in/stats/";
     private Retrofit retrofit;
     private IndiaDataApi indiaDataApi;
 
 
-    public MutableLiveData<IndiaSummaryModel> getIndiaSummary(){
+    public MutableLiveData<IndiaSummaryModel> getIndiaSummary() {
 
         final MutableLiveData<IndiaSummaryModel> indiaSummaryStats = new MutableLiveData<>();
 
@@ -49,7 +48,7 @@ public class IndiaRepository {
             @Override
             public void onResponse(Call<IndiaSummaryModel> call, Response<IndiaSummaryModel> response) {
 
-                    indiaSummaryStats.setValue(response.body());
+                indiaSummaryStats.setValue(response.body());
 
             }
 
@@ -61,12 +60,13 @@ public class IndiaRepository {
         return indiaSummaryStats;
     }
 
-    public MutableLiveData<ArrayList<IndiaStateModel>> getIndiaStates(){
+    public MutableLiveData<ArrayList<IndiaStateModel>> getIndiaStates() {
 
         final MutableLiveData<ArrayList<IndiaStateModel>> indiaStateList = new MutableLiveData<>();
 
 
-        Type listType = new TypeToken<ArrayList<IndiaStateModel>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<IndiaStateModel>>() {
+        }.getType();
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(listType, new IndiaStateDeserializer())
                 .create();

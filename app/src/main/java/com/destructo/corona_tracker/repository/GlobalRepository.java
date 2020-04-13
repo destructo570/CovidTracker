@@ -27,8 +27,6 @@ public class GlobalRepository {
 
         final MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> globalCountrySummary = new MutableLiveData<>();
 
-
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -41,59 +39,46 @@ public class GlobalRepository {
         call.enqueue(new Callback<ArrayList<GlobalCoronaCountryStatistics>>() {
             @Override
             public void onResponse(Call<ArrayList<GlobalCoronaCountryStatistics>> call, Response<ArrayList<GlobalCoronaCountryStatistics>> response) {
-
                 if (!response.isSuccessful()) {
-
                     Log.e("Global Repository", "Country Summary Response Unsuccessful, CODE: " + response.code());
                 }
-
                 globalCountrySummary.setValue(response.body());
             }
-
             @Override
             public void onFailure(Call<ArrayList<GlobalCoronaCountryStatistics>> call, Throwable t) {
-
             }
         });
-
         return globalCountrySummary;
     }
-
 
     public MutableLiveData<GlobalCoronaStatistics> getGlobalSummary() {
 
         final MutableLiveData<GlobalCoronaStatistics> globalSummaryStats = new MutableLiveData<>();
-
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         globalDataApi = retrofit.create(GlobalDataApi.class);
 
         Call<GlobalCoronaStatistics> call = globalDataApi.getGlobalSummary();
-
         call.enqueue(new Callback<GlobalCoronaStatistics>() {
             @Override
             public void onResponse(Call<GlobalCoronaStatistics> call, Response<GlobalCoronaStatistics> response) {
-
                 if (!response.isSuccessful()) {
-
                     Log.e("GlobalRepository", "Response Unsuccessful : " + response.code());
                 }
-
                 globalSummaryStats.setValue(response.body());
-
             }
-
             @Override
             public void onFailure(Call<GlobalCoronaStatistics> call, Throwable t) {
-
                 Log.e("GlobalRepository", "Response Failure : " + t.getMessage());
-
             }
         });
 
         return globalSummaryStats;
     }
+
+
+
+
 }
