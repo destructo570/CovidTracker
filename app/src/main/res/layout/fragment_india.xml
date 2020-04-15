@@ -174,16 +174,4 @@
 
 </LinearLayout>
 
-
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:id="@+id/refresh_fab"
-android:layout_gravity="bottom|end"
-android:layout_margin="16dp"
-android:src="@drawable/ic_icon_refresh_white"
-    app:backgroundTint="@color/primaryAccent"
-
-    />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -111,9 +111,6 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
         mTotalActive = rootView.findViewById(R.id.india_active_id);
         mTotalRecovered = rootView.findViewById(R.id.india_recovered_id);
         mTotalDeath = rootView.findViewById(R.id.india_death_id);
-        NestedScrollView mNestedScrollView = rootView.findViewById(R.id.india_nsv);
-
-        FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
 
         if (checkInternetConnection(getActivity())) {
 
@@ -124,26 +121,6 @@ public class FragmentIndia extends Fragment implements IndiaDataRecyclerAdapter.
             Toast toast = Toast.makeText(getContext(), "Check Your Internet Connection", Toast.LENGTH_LONG);
             toast.show();
         }
-
-        refreshFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
-                observeIndiaSummary(indiaViewModel);
-                observeIndiaStateList(indiaViewModel);
-            }
-        });
-
-        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY) {
-                    refreshFab.hide();
-                } else {
-                    refreshFab.show();
-                }
-            }
-        });
 
         return rootView;
     }

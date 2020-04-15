@@ -22,7 +22,6 @@ public class GlobalRepository {
     private Retrofit retrofit;
     private GlobalDataApi globalDataApi;
 
-
     public MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary() {
 
         final MutableLiveData<ArrayList<GlobalCoronaCountryStatistics>> globalCountrySummary = new MutableLiveData<>();
@@ -61,6 +60,7 @@ public class GlobalRepository {
         globalDataApi = retrofit.create(GlobalDataApi.class);
 
         Call<GlobalCoronaStatistics> call = globalDataApi.getGlobalSummary();
+
         call.enqueue(new Callback<GlobalCoronaStatistics>() {
             @Override
             public void onResponse(Call<GlobalCoronaStatistics> call, Response<GlobalCoronaStatistics> response) {

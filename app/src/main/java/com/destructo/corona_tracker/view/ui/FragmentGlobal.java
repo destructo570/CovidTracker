@@ -61,6 +61,7 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
     private TextView totalActive;
     private ArrayList<GlobalCoronaCountryStatistics> countryData;
     private GlobalCoronaStatistics globalData;
+    private int numInstance;
 
     private GlobalViewModel globalViewModel;
     public static boolean INSTANCE = false;
@@ -98,7 +99,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                              Bundle savedInstanceState) {
         Objects.requireNonNull(getActivity()).setTitle(R.string.title_global);
         View rootView = inflater.inflate(R.layout.fragment_global, container, false);
-        FloatingActionButton refreshFab = rootView.findViewById(R.id.refresh_fab);
         mRecylcer = rootView.findViewById(R.id.global_data_recycler);
         mRecylcer.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL, false));
         totalInfection = rootView.findViewById(R.id.global_infection_id);
@@ -106,8 +106,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         totalRecovered = rootView.findViewById(R.id.global_recovered_id);
         totalActive = rootView.findViewById(R.id.global_active_id);
         Button globalStat = rootView.findViewById(R.id.global_more_button);
-        NestedScrollView mNestedScrollView = rootView.findViewById(R.id.global_nsv);
-
 
         if (checkInternetConnection(Objects.requireNonNull(getActivity()))) {
 
@@ -118,29 +116,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
             Toast toast = Toast.makeText(getContext(), "Check Your Internet Connection", Toast.LENGTH_LONG);
             toast.show();
         }
-
-        refreshFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ObjectAnimator.ofFloat(refreshFab, "rotation", 0f, 360f).setDuration(800).start();
-
-                observeGlobalSummary(globalViewModel);
-                observeGlobalCountry(globalViewModel);
-
-            }
-        });
-
-        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY) {
-                    refreshFab.hide();
-                } else {
-                    refreshFab.show();
-                }
-            }
-        });
 
         globalStat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +129,8 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                     intent.putExtra("SUMMARY", sum);
                     startActivity(intent);
 
+
+
                 }
             }
         });
@@ -163,9 +140,11 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
 
 
     private void observeGlobalSummary(GlobalViewModel viewModel) {
-        viewModel.getGlobalSummary().observe(this, new Observer<GlobalCoronaStatistics>() {
+        viewModel.getGlobalSummary().observe(getViewLifecycleOwner(), new Observer<GlobalCoronaStatistics>() {
             @Override
             public void onChanged(GlobalCoronaStatistics globalCoronaStatistics) {
+
+
 
                 if (globalCoronaStatistics != null) {
 
@@ -175,13 +154,14 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                     totalRecovered.setText(Utils.formatNumber(globalCoronaStatistics.getTotalRecovered()));
                     totalActive.setText(Utils.formatNumber(globalCoronaStatistics.getTotalActive()));
                 }
+
             }
         });
     }
 
     private void observeGlobalCountry(GlobalViewModel viewModel) {
 
-        viewModel.getGlobalCountrySummary().observe(this, globalCoronaCountryStats -> {
+        viewModel.getGlobalCountrySummary().observe(getViewLifecycleOwner(), globalCoronaCountryStats -> {
 
             if (globalCoronaCountryStats != null ) {
 
@@ -189,7 +169,10 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
                 mAdapter = new GlobalDataRecyclerAdapter(globalCoronaCountryStats, this);
                 mRecylcer.setAdapter(mAdapter);
 
+
             }
+
+
         });
     }
 
@@ -206,7 +189,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         return isConnected;
     }
 
-
     @Override
     public void onCountryClick(int position) {
 
@@ -216,7 +198,6 @@ public class FragmentGlobal extends Fragment implements GlobalDataRecyclerAdapte
         intent.putExtra("SUMMARY", sum);
         startActivity(intent);
     }
-
 
 
 }

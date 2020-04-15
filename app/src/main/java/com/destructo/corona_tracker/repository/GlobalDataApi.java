@@ -13,7 +13,7 @@ public interface GlobalDataApi {
     @GET("v2/all")
     Call<GlobalCoronaStatistics> getGlobalSummary();
 
-    @GET("v2/countries")
+    @GET("v2/countries?sort=cases")
     Call<ArrayList<GlobalCoronaCountryStatistics>> getGlobalCountrySummary();
 
 }
