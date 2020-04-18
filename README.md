@@ -5,6 +5,9 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
+#### Version 1.2
+https://bit.ly/2xH7T8i
+
 #### Version 1.1
 https://bit.ly/2JVTsjq
 
@@ -20,6 +23,12 @@ https://bit.ly/vkCovidTracker
    - Fixed FAB not hiding on scroll issue
    - Added FAB animation
    - Added Detailed statistics for Indian states (Click on any state from list)
+   
+#### v1.2
+   - Now uses the api version 2
+   - Few bug fixes
+   - Removed FAB for refresh for now
+   - Fix data on scren getting lost during config changes(Rotation of device)
 
 
 ### FEATURES : :hash:
