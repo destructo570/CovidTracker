@@ -5,6 +5,9 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
+#### Version 1.3(Uninstall previous version)
+https://bit.ly/3fZJf4o
+
 #### Version 1.2
 https://bit.ly/2xH7T8i
 
@@ -29,6 +32,11 @@ https://bit.ly/vkCovidTracker
    - Few bug fixes
    - Removed FAB for refresh for now
    - Fix data on scren getting lost during config changes(Rotation of device)
+   
+   
+#### v1.3 (Uninstall previous version)
+   - Fixed Crashes
+   - Dark Mode(System Dependent)
 
 
 ### FEATURES : :hash:
