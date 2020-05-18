@@ -36,7 +36,7 @@ https://bit.ly/vkCovidTracker
    
 #### v1.3 (Uninstall previous version)
    - Fixed Crashes
-   - Dark Mode(System Dependent)
+   - Dark Mode(System Dependent) - Enable dark mode in your device settings to use dark mode
 
 
 ### FEATURES : :hash:
