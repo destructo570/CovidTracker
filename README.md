@@ -5,40 +5,14 @@ This app was made as part of an excercise to learn more about android developmen
 
 ### DOWNLOAD :
 
-#### Version 1.3(Uninstall previous version)
 This repository is deprecated please go to the newer kotlin based repo.
+The app is created from scratch in kotlin.
 https://github.com/destructo570/CovidTracker-kotlin/blob/master/README.md
-
-#### Version 1.2
-https://bit.ly/2xH7T8i
-
-#### Version 1.1
-https://bit.ly/2JVTsjq
-
-#### Version 1.0
-https://bit.ly/vkCovidTracker
 
 ### Changelog :
 
 #### v1.0
    - Initial version
-#### v1.1
-   - Fix incorrect data displayed in India section
-   - Fixed FAB not hiding on scroll issue
-   - Added FAB animation
-   - Added Detailed statistics for Indian states (Click on any state from list)
-   
-#### v1.2
-   - Now uses the api version 2
-   - Few bug fixes
-   - Removed FAB for refresh for now
-   - Fix data on scren getting lost during config changes(Rotation of device)
-   
-   
-#### v1.3 (Uninstall previous version)
-   - Fixed Crashes
-   - Dark Mode(System Dependent) - Enable dark mode in your device settings to use dark mode
-
 
 ### FEATURES : :hash:
 - Global Detailed statistics of covid-19 cases
