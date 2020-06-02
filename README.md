@@ -6,7 +6,8 @@ This app was made as part of an excercise to learn more about android developmen
 ### DOWNLOAD :
 
 #### Version 1.3(Uninstall previous version)
-https://bit.ly/3fZJf4o
+This repository is deprecated please go to the newer kotlin based repo.
+https://github.com/destructo570/CovidTracker-kotlin/blob/master/README.md
 
 #### Version 1.2
 https://bit.ly/2xH7T8i
